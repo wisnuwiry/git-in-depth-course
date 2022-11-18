@@ -69,7 +69,7 @@ This is a sample illustration about tree and blob in git:
 
 > While have file with content is same/identical, but the file name/directory is dirrefent. Git only store content once.
 
-### Optimizaitons
+### Optimizations
 
 Git optimize other, like packagefiles, delta
 
@@ -82,3 +82,31 @@ Git optimize other, like packagefiles, delta
     - You have too many objets, during gc, or during push to a remote
 
 ## Git Commit
+
+A Commit points to `a tree`
+
+And in commit contains metadata:
+- author and committer
+- date
+- message
+- parent commit (one or more)
+
+> The SHA1 of commit is the hash of all this information
+
+
+## Excercies
+
+1. [Excercise Commit](./excercise/excercise1-commit.md)
+1. [Excercise Staging & Stashing](./excercise/excercise2-staging-and-stasing.md)
+1. [Excercise Reference](./excercise/excercise3-reference.md)
+1. [Excercise Merging](./excercise/excercise4-merging.md)
+1. [Excercise History Diff](./excercise/excersise5-history-diff.md)
+1. [Excercise Fix Mistake](./excercise/excercise6-fix-mistake.md)
+1. [Excercise Rebase Amend](./excercise/excercise7-rebase-amend.md)
+1. [Excercise Form & Remote](./excercise/excercise8-fork-remote.md.md)
+1. [Excercise History Diff](./excercise/excercise9-advance-tool.md)
+1. [Excercise Hooks](./excercise/excercise10-hooks.md)
+
+## References
+
+- [Git In Depth Course](https://frontendmasters.com/courses/git-in-depth)
