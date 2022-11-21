@@ -93,6 +93,77 @@ And in commit contains metadata:
 
 > The SHA1 of commit is the hash of all this information
 
+**Git Commit can't cange** because:
+
+- If you change any data about the commit, the commit will have a new SHA1 hash
+- Even is the files don't change, the created date will
+
+## Git Areas
+
+There areas where code lives:
+
+1. Working Area
+1. Staging Area
+1. Repository
+
+### Working Area
+
+- The files in your working area that are also not in the staging are not handled by git
+- Also called **untracked files**
+
+### The Staging Area
+
+- What file are going to be part of the next commit
+- The staging area is how git knows what will change between the current commit and next commit
+
+Add file to next commit:
+
+```sh
+git add <file>
+```
+
+Remove file in the commit:
+
+```sh
+git rm <file>
+```
+
+Rename file in the commit:
+
+```sh
+git mv <file>
+```
+
+Add file to next commit with diff of changes:
+
+```sh
+git add -p
+```
+
+## Git Stash
+
+- Save uncommited work
+- The stash is safe from destructive operations
+
+**Basic Use Command**:
+
+- Stash Changes: `git stash`
+- List Changes: `git stash list`
+- Show the Content: `git stash show stash@{0}`
+- Apply latest stash: `git stash apply`
+- Apply specifiic stash: `git stash apply stash@{0}`
+- Stash with untracked files: `git stash --include-untracked`
+- Keep all files: `git stash --all`
+- Naming stashes for easy references: `git stash save "WIP: making progress on foo"`
+- Remove & apply latest stash: `git stash pop`
+- Remove latest stash: `git stash drop`
+- Remove specific stash: `git stash drop stash@{0}`
+- Remove all stash: `git stash clear`
+
+### Repository
+
+- The files knows about!
+- Contains all commits
 
 ## Excercies
 
