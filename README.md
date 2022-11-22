@@ -140,6 +140,11 @@ Add file to next commit with diff of changes:
 git add -p
 ```
 
+### Repository
+
+- The files knows about!
+- Contains all commits
+
 ## Git Stash
 
 - Save uncommited work
@@ -160,10 +165,75 @@ git add -p
 - Remove specific stash: `git stash drop stash@{0}`
 - Remove all stash: `git stash clear`
 
-### Repository
+## Three Type of Git References
 
-- The files knows about!
-- Contains all commits
+1. Tags & Annotations Tags
+1. Branches
+1. HEAD
+
+### Branch
+
+- A branch is just a pointer to a particular commit
+- The pointer of the current branch changes as new commit are made
+
+### HEAD
+
+Head is how git knows what branch you're currently on, and what the next parent will be.
+
+HEAD is a pointer:
+
+- Usually points at the name of the current branch
+- But, it can point at a commit too (detached HEAD)
+
+HEAD moves when:
+
+- Make a commit in the currently active branch
+- When checkout a new branch
+
+To show current HEAD print out HEAD on .git folder:
+
+```sh
+cat .git/HEAD
+```
+
+### Lightweight Tags
+
+Is a simple pointer a commit.
+
+When create a tag with no arguments, it capture the value in HEAD.
+
+Sample Create Tags
+
+```sh
+git tag my-first-commit
+```
+
+TO store additional information like: Author, message, date in git tags, use `git tag -a`. Example:
+
+```sh
+> git tag -a v1.0 -m "Version 1.0 of my blog"
+
+> git tag
+// v1.0
+
+> git show v1.0 
+// tag v1.0
+// Tagger: Wisnu Ginanjar Saputra <wisnuwiry@gmail.com>
+// Date:   Tue Nov 22 21:05:59 2022 +0700
+// 
+// Version 1.0 of my blog
+```
+
+- List all the tags in a repo: `git tag`
+- List all tags, and what commit they're point to: `git show-ref --tags`
+- List all the tags pointing at a commit: `git tag --points-at <commit>`
+- Looking at the tag, or tagged contents: `git show <tag-name>`
+
+**The Difference of Tags & Branches**
+
+**Branches**: The current branch pointer moves with every commit to the repository
+
+**Tags**: The commit that a tag points doesn't change & it's a snapshot
 
 ## Excercies
 
