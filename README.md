@@ -235,6 +235,40 @@ TO store additional information like: Author, message, date in git tags, use `gi
 
 **Tags**: The commit that a tag points doesn't change & it's a snapshot
 
+## Merging & Fast Forward
+
+> Merge commit are just commit
+
+### Fast Forward
+
+```sh
+> git checkout master
+> git merge feature
+// Updating .......
+// Fast Forward
+```
+
+> Fast forward happens when there are no commits on the base branch that occured after the feature branch was created.
+
+To retain the history of a merge commit, even if there are no changes to the base branch use `--no-ff` (No Fast Forward).
+This will force a merge commit, event when one isn't necessary.
+
+### Merge Conflict
+
+- Attempt to merge, but files have diverged
+- Git stops until the conflicts are resolved
+
+### Git RERERE (Reuse, Recorded, Resolution)
+
+- Git saves how you solve your conflicts
+- Next conlict: reuse the sample resolution
+
+This useful for:
+- Long lived feature branch (like a refactor)
+- rebasing
+
+> To enable Git RERERE: `git config rerere.enabled true` and use `--global` flag to set enable for all projects
+
 ## Excercies
 
 1. [Excercise Commit](./excercise/excercise1-commit.md)
