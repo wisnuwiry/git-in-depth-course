@@ -338,6 +338,41 @@ Diff show changes of files:
 
 Show diff in unstage area: `git diff`
 Show diff in staged area: `git diff --staged`
+
+## Fixing Mistakes
+
+### Git Clean
+
+Clean will clear your working area by deleting untracked files.
+
+Tips:
+
+- Use `--dry-run` flag to see what would be deleted
+- Use `-f` flag to do deletion
+- Use `-d` flag will clean directory
+
+### Git Reset
+
+Reset is another command that perform different action depending on arguments:
+- With path
+- Without path
+
+> By default git performed: `git reset --mixed`
+
+Git reset have 3 main option: soft, mixin, hard
+
+**--soft**: "Move HEAD & current branch"
+**--mixed**: "Move HEAD & current branch" and "Reset the staging area"
+**--hard**: "Move HEAD & current branch" and "Reset the staging area" and "Reset the working area" 
+
+### Git Revert (The safe of reset)
+
+Git revert creates a new commit that introduce the opposite changes from the specified commit.
+
+The original commit stays in the repository.
+
+> **Tips**: Use revert is you're undoing a commit that has already been shared. Revert doesn't change history.
+
 ## Excercies
 
 1. [Excercise Commit](./excercise/excercise1-commit.md)
