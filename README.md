@@ -269,6 +269,75 @@ This useful for:
 
 > To enable Git RERERE: `git config rerere.enabled true` and use `--global` flag to set enable for all projects
 
+## History & Diff
+
+### Good Commit are really important
+
+- Git commit help preserve the history of code base
+- They help with:
+    - Debugging & troubleshooting
+    - Creating release notes
+    - Code review
+    - rolling back
+    - associating the code with an issue or ticket
+
+**Anatomy og Good Commit:**
+- Good commit message
+- Encapsulates one logical idea
+- Doesn't intruduce breaking changes ex: tests pass
+
+### Git Log
+
+Git log, is a basic command to show history of repository
+
+Command: `git log`
+
+Show git log with `since` flags Ex:
+
+```sh
+> git log --since="yesterday"
+> git log --since="2 weeks ago"
+```
+
+Filtering history git log with `grep` flag ex:
+
+```sh
+git log --grep=mail --author=wisnu --since=2.weeks
+```
+
+To show log with filter selectively include/exclude files you have been:
+
+- (A)dd
+- (D)elete
+- (M)odified
+- (R)ename
+
+Ex:
+
+```sh
+git log --diff-filter=M --stat
+```
+
+### Git Show & Diff
+
+**Show**
+
+Show commit and content history changed
+
+- Show commit and content: `git show <commit>`
+- Show files changed in commit: `git show <commit> --stat`
+- Look at file from another commit: `git show <commit>:<file>`
+
+**Diff**
+
+Diff show changes of files:
+
+- Between commits
+- Between staging area and the repository
+- what's in the working area
+
+Show diff in unstage area: `git diff`
+Show diff in staged area: `git diff --staged`
 ## Excercies
 
 1. [Excercise Commit](./excercise/excercise1-commit.md)
