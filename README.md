@@ -373,6 +373,93 @@ The original commit stays in the repository.
 
 > **Tips**: Use revert is you're undoing a commit that has already been shared. Revert doesn't change history.
 
+## Git Amend & Rebase
+
+### Amend 
+
+Amend is a quick and easy shortcut that lets you make changes to the previous commit.
+
+### Rebase
+
+- Imagine out `tech_posts` and master branch have diverged
+- We don't want a messy merge commit in our hisotry
+- We can pull in the latest changes from master, and apply our commits on top of them by changing the parent commit of our commits.
+
+
+## Remote
+
+A remote is a git repository stored elsewhere - on the web, in github ext.
+
+**origin** s the default name git gives to the server you cloned from.
+
+Cloning a remote repository from a URL will fetch the whole repository, and make a loal copy in your `.git` folder.
+
+You my have different privileges for a remote. Read/Write form some, read only for other.
+
+To view remote info:
+
+```sh
+> git remote -v
+```
+
+## Fork
+
+A fork is a copy of a repository that store in github account. And the fork repository can clone to local computer.
+
+To stay up to day fork repository add upstream.
+
+### Upstream
+
+Upstream repository is the base repository created a fork from. This isn't set up by default, you need to setup in manually.
+
+By adding an upstream remote, you can pull down changes that have been added to the original repository after you fork it.
+
+Ex:
+
+```sh
+> git remote add upstream https://github.com/ORIG_OWNER/REPO.git
+```
+
+## Git Fetch
+
+Git fetch is important for keeping your local repository up to date with a remote.
+
+It pulls down all the changes that happened on the server, but it doesn't change your local repository.
+
+Ex:
+```sh
+git fetch
+```
+
+## Git Pull
+
+Pulling will pull down the changes from the remote repository yo your local repository, and merging them with a local branch.
+
+Ex: 
+```sh
+git pull
+```
+
+Under the hood: `git pull` is a `git fetch` && `git merge`.
+
+If changes happen the upstream, git will create merge commit, otherwise it will fast forward.
+
+
+## Git Push
+
+Pushing send you changes to the remote repository
+
+Git only push change won't chause a conflict
+
+> To see commit which haven't been pushed upstream yet: `git cherry -v`
+
+## Danger Zone
+
+- `git checkout -- <file>` if the file present in the staging area, it will be overwritten
+- `git reset --hard` will overwrite change that are staged and in the working area
+
+> **Tips**: Use `git stash --include-untracked` to include working area changes in your 
+
 ## Excercies
 
 1. [Excercise Commit](./excercise/excercise1-commit.md)
@@ -389,3 +476,4 @@ The original commit stays in the repository.
 ## References
 
 - [Git In Depth Course](https://frontendmasters.com/courses/git-in-depth)
+- [Rewriting hisotry](https://www.atlassian.com/git/tutorials/rewriting-history)
